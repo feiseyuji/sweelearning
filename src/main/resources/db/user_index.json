@@ -1,0 +1,33 @@
+{
+  "settings": {
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "user": {
+      "dynamic": false,
+      "properties": {
+        "userId": {
+          "type":"long"
+        },
+        "name": {
+          "type": "text"
+        },
+        "hobe": {
+          "type":"text"
+        },
+        "email": {
+          "type": "text"
+        },
+        "moble": {
+          "type":"text"
+        },
+        "address": {
+          "type": "text"
+        },
+        "description": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

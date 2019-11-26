@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/swee?characterEncoding=UTF-8&useUnicode=true&useSSL=false&allowMultiQueries=true&serverTimezone=GMT
+    username: root
+    #username: aqniz0hunc9ik6c1
+    password: 123456
+
+
+  jpa:
+      database: mysql
+      hibernate:
+        show-sql: true
+        ddl-auto: update
+
+  #data:
+    #   mongodb:
+    #          uri: mongodb://root:root@localhost:27017/bus
+#    elasticsearch
+#      cluster-name: my-application
+#      cluster-nodes: 192.168.157.7:9300
+#      repositories.enable: true
+  main:
+    allow-bean-definition-overriding: true
+
+  security:
+      user:
+        name: admin  # 用户名
+        password: 123456  # 密码
+

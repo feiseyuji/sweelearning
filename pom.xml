@@ -1,0 +1,162 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.womenhz</groupId>
+  <artifactId>swee</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>swee</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>2.2.0.RELEASE</version>
+		</dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>2.2.0.RELEASE</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.2.0.RELEASE</version>
+		</dependency>
+
+	  <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-security</artifactId>
+		  <version>2.2.0.RELEASE</version>
+	  </dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		<!--	<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>-->
+			<version>2.2.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.22</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>3.8.1</version>
+		  <scope>test</scope>
+		</dependency>
+
+	  <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+	  <dependency>
+		  <groupId>com.google.code.gson</groupId>
+		  <artifactId>gson</artifactId>
+		  <version>2.8.5</version>
+	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch -->
+	 <!-- <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		  <version>2.2.0.RELEASE</version>
+	  </dependency>-->
+	  <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/transport -->
+	  <dependency>
+		  <groupId>org.elasticsearch.client</groupId>
+		  <artifactId>transport</artifactId>
+		  <version>6.6.2</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.12</version>
+		  <scope>test</scope>
+	  </dependency>
+
+      <!-- swagger-->	  <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+	  <dependency>
+		  <groupId>io.springfox</groupId>
+		  <artifactId>springfox-swagger-ui</artifactId>
+		  <version>2.9.2</version>
+	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+	  <dependency>
+		  <groupId>io.springfox</groupId>
+		  <artifactId>springfox-swagger2</artifactId>
+		  <version>2.9.2</version>
+	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/io.springfox/springfox-bean-validators -->
+	  <dependency>
+		  <groupId>io.springfox</groupId>
+		  <artifactId>springfox-bean-validators</artifactId>
+		  <version>2.9.2</version>
+	  </dependency>
+
+  </dependencies>
+
+	<build>
+		<finalName>swee-jpa</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
+				<configuration>
+					<imageName>${project.name}:${project.version}</imageName>
+					<!--Dockerfile文件位置-->
+					<dockerDirectory>docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>8</source>
+					<target>8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
