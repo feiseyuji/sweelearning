@@ -9,4 +9,5 @@ import com.womenhz.swee.model.User;
 public interface UserRepository extends CrudRepository<User, Long> {
 
 	Optional<User> findById(Long aLong);
+
 }

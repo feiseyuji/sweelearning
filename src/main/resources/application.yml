@@ -6,6 +6,20 @@ spring:
     #username: aqniz0hunc9ik6c1
     password: 123456
 
+  redis:
+    host: localhost
+    port: 6379
+    #password: 123456
+    timeout: 2s
+    jedis:
+      pool:
+        maxActive: 8
+        maxWait: -1
+        maxIdle: 8
+        minIdle: 0
+
+
+
 
   jpa:
       database: mysql

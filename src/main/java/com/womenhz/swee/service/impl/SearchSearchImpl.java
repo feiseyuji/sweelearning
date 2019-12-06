@@ -40,7 +40,6 @@ public class SearchSearchImpl implements SearchService {
     @Autowired
     private UserService userService;
 
-
     private void createOrUpdateIndex(Long userId) {
         User user = userService.getById(userId);
         UserIndexTemplate userIndexTemplate = UserIndexTemplate.builder().build();

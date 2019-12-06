@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.womenhz.swee.dao.UserRepository;
 import com.womenhz.swee.model.User;
+import com.womenhz.swee.redis.RedisCache;
 
 @Service
 public class UserService {
@@ -16,6 +17,9 @@ public class UserService {
 
 	@Autowired
 	private SearchService searchService;
+
+	@Autowired
+	private RedisCache redisCache;
 	
 	public User getById(Long id) {
         Optional<User> userOpt = userRepository.findById(id);
@@ -31,6 +35,12 @@ public class UserService {
         return save.getId();
     }
 
+    public void set(String key, Object value) {
+	    redisCache.set(key, value);
+    }
 
+    public Object get(String key) {
+	    return  redisCache.get(key);
+    }
 
 }

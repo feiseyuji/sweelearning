@@ -20,6 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and().formLogin()
                 .and()
+                .csrf().disable()
                 .httpBasic();
     }
 
@@ -29,6 +30,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .withUser("admin1").password(new BCryptPasswordEncoder().encode("admin1"))
                 .roles("ADMIN","USER")
                 .and()
-                .withUser("user1").password(new BCryptPasswordEncoder().encode("user1")).roles("USER");
+                .withUser("user1").password(new BCryptPasswordEncoder().encode("user1")).roles("ADMIN","USER");
     }
 }

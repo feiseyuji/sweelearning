@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.womenhz.swee.model.User;
 import com.womenhz.swee.service.UserService;
+import lombok.Builder;
+import lombok.Data;
 
 @RestController
 @RequestMapping("/user")
@@ -27,6 +29,21 @@ public class UserController {
     @PostMapping("/create")
     Long create(@RequestBody User user) {
         return userService.create(user);
+    }
+
+    @PostMapping("/set")
+    void set(@RequestBody ParamDTO paramDTO) {
+        userService.set(paramDTO.key, paramDTO.obj);
+        System.out.println("key= "+userService.get(paramDTO.key));
+    }
+
+    @Data
+    @Builder
+    static class ParamDTO {
+
+        private String key;
+
+        private Object obj;
     }
 
 
