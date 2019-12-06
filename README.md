@@ -1,3 +1,3 @@
 # sweelearning
 java note
-spring scurity, elasticsearch
+spring scurity, elasticsearch, redis
