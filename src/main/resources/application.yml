@@ -1,3 +1,6 @@
+server:
+  port: 8098
+
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -41,4 +44,3 @@ spring:
       user:
         name: admin  # 用户名
         password: 123456  # 密码
-

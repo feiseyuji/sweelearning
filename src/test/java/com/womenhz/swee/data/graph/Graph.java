@@ -1,0 +1,17 @@
+package com.womenhz.swee.data.graph;
+
+public interface Graph {
+
+    public int V();
+
+    public int E();
+
+    public void addEdge(int v, int w);
+
+    boolean hasEdge(int v, int w);
+
+    void show();
+
+    public Iterable<Integer> adj(int v);
+
+}

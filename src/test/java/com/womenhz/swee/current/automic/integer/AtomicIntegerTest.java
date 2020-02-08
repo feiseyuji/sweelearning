@@ -1,4 +1,4 @@
-package com.womenhz.swee.current.automic;
+package com.womenhz.swee.current.automic.integer;
 
 import java.util.Collections;
 import java.util.HashSet;
