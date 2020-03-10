@@ -72,7 +72,7 @@ public class ShortestPath {
         return visited[w];
     }
 
-    public int legth(int w) {
+    public int length(int w) {
         assert w >= 0 && w < graph.V();
         return ord[w];
     }

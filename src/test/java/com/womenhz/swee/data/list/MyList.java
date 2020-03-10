@@ -1,5 +1,6 @@
 package com.womenhz.swee.data.list;
 
+import io.swagger.models.auth.In;
 import lombok.Data;
 
 @Data
@@ -15,6 +16,77 @@ public class MyList<T> {
         this.head = null;
         this.tail = null;
         this.size = 0;
+    }
+    /**
+     *
+     * while(node1 != null) {
+     *     if（node2 != null）{
+     *         int da
+     *     }
+     *
+     * }
+     *
+     *
+     *
+     *
+     * **/
+    public Node add2Num(Node<Integer> node1, Node<Integer> node2){
+        Node head = null;
+        Node pre = head;
+        Node cur = head;
+        boolean isHead = true;
+        boolean gt10 = false;
+        while (node1 != null) {
+            if (node2 != null) {
+                int data = !gt10 ? node1.getData() + node2.getData() : node1.getData() + node2.getData() + 1;
+                if (isHead) {
+                    if (data > 9) {
+                        cur = new Node<>(data - 10);
+                    }else {
+                        cur = new Node(data);
+                    }
+                    head = cur;
+                    pre = cur;
+                    isHead = false;
+                }
+                if (data > 9) {
+                    cur = new Node<>(data - 10);
+                }else {
+                    cur = new Node(data);
+                }
+                pre.setNext(cur);
+                pre = cur;
+                node2 = node2.getNext();
+            }else {
+                pre.setNext(node1);
+            }
+            node1 = node1.getNext();
+        }
+
+        if (node2 != null) {
+            pre.setNext(node2);
+        }
+        return head;
+    }
+    public Node add2Nums(Node<Integer> node1, Node<Integer> node2) {
+        Node head = new Node(-1);
+        Node cur = head;
+        int extra = 0;
+        while (node1 != null || node2 != null || extra != 0) {
+            int value1 = node1 != null ? node1.getData() : 0;
+            int value2 = node2 != null ? node2.getData() : 0;
+
+            int sumValue = value1 + value2 + extra;
+            extra = sumValue / 10;
+
+            cur.setNext(new Node(sumValue % 10));
+
+            node1 = node1 != null ? node1.getNext() : null;
+            node2 = node2 != null ? node2.getNext() : null;
+
+            cur = cur.getNext();
+        }
+        return head.getNext();
     }
 
     public void insert(T data) {

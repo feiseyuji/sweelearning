@@ -34,8 +34,25 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-thymeleaf</artifactId>
+				</exclusion>
+			</exclusions>
 			<version>2.2.0.RELEASE</version>
 		</dependency>
+
+	  <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-undertow</artifactId>
+		  <version>2.2.0.RELEASE</version>
+	  </dependency>
+
 
 	  <dependency>
 		  <groupId>org.springframework.boot</groupId>
@@ -147,6 +164,12 @@
 		  <groupId>commons-validator</groupId>
 		  <artifactId>commons-validator</artifactId>
 		  <version>LATEST</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>fastjson</artifactId>
+		  <version>1.2.58</version>
 	  </dependency>
 
   </dependencies>
