@@ -44,7 +44,7 @@
 					<artifactId>spring-boot-starter-thymeleaf</artifactId>
 				</exclusion>
 			</exclusions>
-			<version>2.2.0.RELEASE</version>
+			<version>2.5.12</version>
 		</dependency>
 
 	  <dependency>
